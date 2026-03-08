@@ -1,0 +1,24 @@
+[project]
+name = "ladesaeulen-mainz-tool"
+version = "0.1.0"
+description = "Generate an interactive EV charging map and city stats for Mainz from official German data."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "folium>=0.20.0",
+  "requests>=2.32.5",
+  "shapely>=2.1.2",
+]
+
+[project.scripts]
+mainz-chargers = "ladesaeulen_mainz.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+package = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ladesaeulen_mainz"]
